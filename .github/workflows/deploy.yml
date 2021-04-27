@@ -1,0 +1,25 @@
+name: deploy
+
+on:
+  repository_dispatch:
+    types: [deploy-service]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+
+      - name: Install Terraform
+        run: |
+          sudo apt-get install unzip
+          wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip
+          unzip terraform_0.13.5_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
+      - name: run
+        run: cd cicd && ./deployer ${{ github.event.client_payload.environment }} 
