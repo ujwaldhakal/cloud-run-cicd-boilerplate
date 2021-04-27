@@ -1,0 +1,7 @@
+project="dev-app"
+machine_type="n1-standard-1"
+region="us-central1"
+credential_file_path="credentials/dev-cred.json"
+zone= "us-central1-c"
+app_name="dev-app"
+github_repo="github.com/ujwaldhakal/cloudrun-deployment"
