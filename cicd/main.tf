@@ -5,18 +5,14 @@ provider "google-beta" {
   version = "~> 3.43"
 }
 
-variable "image_tag" {
-  type = string
-}
-
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "gcs" {
+    prefix = "api"
   }
 }
 
 locals {
-  app_image = "gcr.io/dev-app/${var.github_repo}:${var.image_tag}"
+  app_image = "gcr.io/${var.github_repo_name}/${var.github_repo}:${var.image_tag}"
 }
 resource "google_cloud_run_service" "default" {
   name = var.app_name

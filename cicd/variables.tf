@@ -26,6 +26,10 @@ variable "app_name" {
     type=string
 }
 
-variable "github_repo" {
+variable "github_repo_name" {
     type=string
+}
+
+variable "image_tag" {
+  type = string
 }
