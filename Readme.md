@@ -15,4 +15,4 @@ This is basic demonstration of making CI/CD in Cloud Run with some stacks. This 
 * trigger command `./cicd/deploy dev  master` where dev is environment name and master is the branch name
 * Replace github repo url at `deploy`
 
-Visit https://medium.com/p/528ff7964e7/edit this link for more
+Visit https://medium.com/p/528ff7964e7/edit for more instruction
